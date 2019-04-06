@@ -1,0 +1,18 @@
+# Base OS Image Name
+FROM ubuntu:latest
+
+# Owner
+MAINTAINER Amit <amitvashist7@gmail.com>
+
+# Run APT_GET Update
+RUN apt-get update 
+
+# Install Apache Packages
+RUN apt-get install apache2 -y
+
+
+# EXPOSE Service Port
+EXPOSE 80 
+
+# Excute the Service at Runtime
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND" ]

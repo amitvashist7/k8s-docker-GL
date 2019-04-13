@@ -1,0 +1,8 @@
+---
+
+my-test:
+  image: hello-world
+
+
+my-apache:
+  image: amitvashist7/my-apache-ubuntu:v2

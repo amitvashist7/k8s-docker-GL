@@ -1,0 +1,152 @@
+    1  apt-get update; apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    2  apt-get update; apt-get install docker-ce -y 
+    3  docker version 
+    4  history 
+    5  docker pull busybox
+    6  docker run  -it ubuntu 
+    7  docker ps 
+    8  docker ps -a
+    9  docker start 81d12e477387        
+   10  docker ps 
+   11  docker attach 81d12e477387        
+   12  ls
+   13  docker ps -a 
+   14  docker ps -qa
+   15  docker kill $(docker ps -qa)
+   16  docker rm $(docker ps -qa)
+   17  ls
+   18  docker run -it -v /var/log/amit ubuntu 
+   19  ls
+   20  df -h 
+   21  docker ps 
+   22  docker inspect 54cbd5992af7        
+   23  cd /var/lib/docker/volumes/b0957d4ba8a710015366290f0fd2e2fffdb23b3eda4cd4126bbd1b8b669eb170/_data
+   24  ls
+   25  cat hello.txt 
+   26  cat now 
+   27  date >> now 
+   28  cat now 
+   29  docker attach 54cbd5992af7        
+   30  cd
+   31  docker rm (docker ps -aq)
+   32  docker rm $(docker ps -aq)
+   33  docker volume ls 
+   34  docker inspect b0957d4ba8a710015366290f0fd2e2fffdb23b3eda4cd4126bbd1b8b669eb170
+   35  cd /var/lib/docker/volumes/b0957d4ba8a710015366290f0fd2e2fffdb23b3eda4cd4126bbd1b8b669eb170/_data
+   36  ls
+   37  cat now 
+   38  cat hello.txt 
+   39  docker ps -a 
+   40  docker volume create amit
+   41  docker volume ls 
+   42  docker inspect amit 
+   43  cd
+   44  ls
+   45  dd if=/dev/zero of=sample bs=1G count=2 
+   46  ls
+   47  rm -rf sample 
+   48  ls
+   49  dd if=/dev/zero of=sample bs=100M count=2 
+   50  ls
+   51  du -sh sample 
+   52  mkdir  /src/webapps
+   53  mkdir -p  /src/webapps
+   54  mount -o loop sample /src/webapps
+   55  mount -o bind sample /src/webapps
+   56  ls
+   57  mv sample sample.iso
+   58  mount -o loop sample.iso /src/webapps
+   59  dd if=/dev/zero of=sample-1.iso bs=100M count=2 
+   60  mount -o loop /root/sample-1.iso /src/webapps
+   61  ls
+   62  cd /src/webapps/
+   63  ls
+   64  echo "Hello World" > index.html
+   65  ls
+   66  cd ..
+   67  cd
+   68  ls
+   69  docker run -it --name test01 -v /src/webapps/:/var/www/html/ ubuntu 
+   70  ls
+   71  cd /src/webapps/
+   72  ls
+   73  cat index.html 
+   74  docker volumes 
+   75  docker volume ls 
+   76  docker ps 
+   77  docker ps -a
+   78  docker run -it --name test02 --volumes-from  test01 ubuntu
+   79  cd
+   80  ls
+   81  docker run -it centos 
+   82  docker ps 
+   83  docker commit -p e76c6071d0f7 -t amitvashist7/centos-httpd:v1
+   84  docker commit -p e76c6071d0f7  amitvashist7/centos-httpd:v1
+   85  docker images
+   86  docker ps 
+   87  docker kill e76c6071d0f7        ; docker rm e76c6071d0f7        
+   88  docker ps -a 
+   89  docker images 
+   90  docker run -it amitvashist7/centos-httpd:v1
+   91  history 
+   92  docker ps 
+   93  docker ps -a 
+   94  docker run -itd --name test01 amitvashist7/centos-httpd:v1
+   95  docker run -itd --name apache01 amitvashist7/centos-httpd:v1
+   96  ip addr 
+   97  docker ps 
+   98  docker inspect 96548ec2f831        
+   99  curl 172.17.0.2
+  100  curl localhost 
+  101  netstat -tulnp
+  102  docker run -itd --name apache02 -p 8081:80 amitvashist7/centos-httpd:v1
+  103  docker ps 
+  104  netstat -tulnp
+  105  curl localhost 
+  106  curl localhost:8081 
+  107  ip addr 
+  108  curl 10.142.0.52
+  109  curl 10.142.0.52:8081
+  110  docker run -it --name apache03 -p 8082:80 amitvashist7/centos-httpd:v1
+  111  ip addr 
+  112  docker network ls 
+  113  docker network inspect bridge              
+  114  docker kill apache02
+  115  docker run -it --name apache04 -p 8082:80 amitvashist7/centos-httpd:v1
+  116  docker run -it --name apache05 -p 8084:80 amitvashist7/centos-httpd:v1
+  117  docker network inspect bridge              
+  118  history 
+  119  git clone https://github.com/amitvashist7/k8s-docker-GL.git
+  120  docker ps 
+  121  docker kill $(docker ps -aq) 
+  122  docker rm $(docker ps -aq) 
+  123  ip addr 
+  124  docker network ls 
+  125  docker network create my-net
+  126  docker network ls 
+  127  docker network inspect my-net
+  128  ip addr 
+  129  docker network create --driver=bridge --subnet=172.28.0.0/24 --gateway=172.28.0.254 --ip-range=172.28.5.0/24 mybr0
+  130  docker network create --driver=bridge --subnet=172.28.0.0/24 --ip-range=172.28.5.0/24 --gateway=172.28.0.254  mybr0
+  131  docker network create --driver=bridge --subnet=172.28.0.0/16 --ip-range=172.28.5.0/24 --gateway=172.28.0.254  mybr0
+  132  docker network ls 
+  133  docker network inspect mybr0               
+  134  docker network remove mybr0               
+  135  docker network create --driver=bridge --subnet=172.28.0.0/16 --ip-range=172.28.5.0/24 --gateway=172.28.5.254  mybr0
+  136  docker network inspect mybr0               
+  137  docker run -it --name apache01 -p 8081:80 amitvashist7/centos-httpd:v1
+  138  docker ps 
+  139  docker inspect 1301999c7064        
+  140  docker run -itd --name apache01 -p 8081:80 --network mybr0 amitvashist7/centos-httpd:v1
+  141  docker network ls 
+  142  docker run -itd --name apache02 -p 8082:80 --network mybr0 amitvashist7/centos-httpd:v1
+  143  docker ps 
+  144  docker inspect 74f273daf101        
+  145  docker run -itd --name apache03 -p 8083:80 --network mybr0 amitvashist7/centos-httpd:v1
+  146  docker network inspect mybr0
+  147  ls
+  148  cd k8s-docker-GL/
+  149  ls
+  150  cd docker-demo/
+  151  ls
+  152  history > History_Day2.txt

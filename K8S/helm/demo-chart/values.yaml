@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: wardviaene/node-demo-app
+  repository: amitvashist7/node-demo-app
   tag: v0.0.1
   pullPolicy: IfNotPresent
 

@@ -1,0 +1,234 @@
+  933  gcloud container clusters get-credentials k8s-demo --zone us-central1-a --project sapient-office-218912
+  934  kubectl get pods 
+  935  kubectl describe pod helloworld-deployment-576b4c777b-6bqkk
+  936  kubectl get pods 
+  937  kubectl get deployment
+  938  kubectl edit deployment helloworld-deployment
+  939  kubectl get deployment
+  940  kubectl get pods 
+  941  history 
+  942  ls
+  943  kubectl get pods 
+  944  kubectl describe pod helloworld-deployment-549b6c69df-4h2sv
+  945  ls
+  946  cat helloworld-secrets.yml 
+  947  kubectl get deploymet 
+  948  kubectl get deployment
+  949  kubectl delete deployment helloworld-deployment
+  950  ls
+  951  cat helloworld-secrets.yml 
+  952  echo -n "root"| base64
+  953  echo -n "password"| base64
+  954  kubectl get secrets
+  955  kubectl create -f helloworld-secrets.yml 
+  956  kubectl get secrets
+  957  kubectl describe secretsdb-secrets
+  958  kubectl describe secrets db-secrets
+  959  kubectl edit secrets db-secrets
+  960  ls
+  961  cat helloworld-secrets-volumes.yml 
+  962  kubectl create -f helloworld-secrets-volumes.yml 
+  963  kubectl get pods 
+  964  kubectl describe pods helloworld-deployment-54f87c75d5-4r6nt | grep -i secret
+  965  kubectl exec -it helloworld-deployment-54f87c75d5-4r6nt -- /bin/sh
+  966  history 
+  967  ls
+  968  cd ..
+  969  ls
+  970  git pull 
+  971  ls
+  972  kubectl get deployments 
+  973  kubectl delete deployment helloworld-deployment
+  974  ls
+  975  cd wordpress/
+  976  ls
+  977  cat wordpress-secrets.yml 
+  978  echo -n "rootpassword"|base64
+  979  echo -n "password"|base64
+  980  ls
+  981  kubectl create -f wordpress-secrets.yml 
+  982  ls
+  983  kubectl get secrets 
+  984  ls
+  985  vim wordpress-single-deployment-no-volumes.yml 
+  986  kubectl create -f wordpress-single-deployment-no-volumes.yml
+  987  kubectl get pods 
+  988  cat wordpress-service.yml 
+  989  kubectl create -f wordpress-service.yml 
+  990  kubectl get pods 
+  991  kubectl get pods -o wide 
+  992  kubectl get svc 
+  993  kubectl edit svc wordpress-service 
+  994  kubectl get svc 
+  995  kubectl get pods 
+  996  kubectl describe pod wordpress-deployment-9cb886cf6-xtrbc
+  997  kubectl describe pod wordpress-deployment-9cb886cf6-xtrbc | more
+  998  kubectl exec -it wordpress-deployment-9cb886cf6-xtrbc -- /bin/sh
+  999  kubectl exec -it wordpress-deployment-9cb886cf6-xtrbc -c mysql -- /bin/sh
+ 1000  history 
+ 1001  kubectl get pods 
+ 1002  gcloud container clusters get-credentials k8s-demo --zone us-central1-a --project sapient-office-218912
+ 1003  kubectl get pods 
+ 1004  kubectl delete deployment wordpress-deployment
+ 1005  kubectl get svc 
+ 1006  kubectl delete svc wordpress-service
+ 1007  ls
+ 1008  cd k8s-docker-GL/
+ 1009  ls
+ 1010  git pull 
+ 1011  ls
+ 1012  cd K8S/
+ 1013  ls
+ 1014  cd service-discovery/
+ 1015  ls
+ 1016  cat secrets.yml 
+ 1017  kubectl create -f secrets.yml 
+ 1018  ls
+ 1019  cat database.yml 
+ 1020  kubectl create -f database.yml 
+ 1021  kubectl get pods 
+ 1022  kubectl create -f database-service.yml 
+ 1023  kubectl get svc 
+ 1024  kubectl get pods -o wide 
+ 1025  ls
+ 1026  cat helloworld-db.yml 
+ 1027  kubectl create -f helloworld-db.yml 
+ 1028  kubectl create -f helloworld-db-service.yml 
+ 1029  kubectl get pods 
+ 1030  kubectl get svc 
+ 1031  kubectl edit svc helloworld-db-service
+ 1032  kubectl get svc 
+ 1033  curl 34.66.135.61:30468
+ 1034  curl 34.66.135.61:3000
+ 1035  ls
+ 1036  kubectl get pods 
+ 1037  kubectl get svc 
+ 1038  kubectl run -it busybox --image=busybox -- /bin/sh
+ 1039  kubectl get pods 
+ 1040  curl 34.66.135.61:3000
+ 1041  kubectl exec database -it -- mysql -u root -p 
+ 1042  ls
+ 1043  vim helloworld-db.yml 
+ 1044  kubectl get pod -n kube-system
+ 1045  kubectl describe pod kube-dns-7df4cb66cb-2gl5w -n kube-system
+ 1046  ls
+ 1047  cd ../cd ..
+ 1048  cd ..
+ 1049  git pull 
+ 1050  ls
+ 1051  cd configmap/
+ 1052  ls
+ 1053  cat reverseproxy.conf 
+ 1054  cat nginx-service.yml 
+ 1055  cat nginx.yml 
+ 1056  ls
+ 1057  kubectl create configmap nginx-config --from-file=reverseproxy.conf 
+ 1058  kubectl get configmap
+ 1059  kubectl get configmap -o yaml
+ 1060  ls
+ 1061  kubectl create -f nginx.yml 
+ 1062  kubectl get pods 
+ 1063  ls
+ 1064  vim nginx-service.yml 
+ 1065  kubectl create -f nginx-service.yml 
+ 1066  kubectl get svc 
+ 1067  kubectl edit svc helloworld-nginx-service
+ 1068  kubectl get svc 
+ 1069  kubectl delete svc database-service helloworld-db-service
+ 1070  kubectl get deployments 
+ 1071  kubectl delete deployments  busybox                 helloworld-deployment
+ 1072  kubectl get pods 
+ 1073  kubectl delete pod database
+ 1074  kubectl get pods 
+ 1075  kubectl get svc 
+ 1076  curl 35.225.206.204   
+ 1077  kubectl exec -it helloworld-nginx -c nginx -- /bin/sh
+ 1078  kubectl get configmap
+ 1079  kubectl edit configmap nginx-config
+ 1080  kubectl get pods 
+ 1081  kubectl exec -it helloworld-nginx -c nginx -- /bin/sh
+ 1082  ls
+ 1083  vim reverseproxy.conf 
+ 1084  kubectl apply configmap nginx-config --from-file=reverseproxy.conf 
+ 1085  kubectl apply configmap nginx-config -o yaml
+ 1086  kubectl get configmap nginx-config -o yaml
+ 1087  kubectl get configmap nginx-config -o yaml > nginx-config-apply.yaml
+ 1088  vim nginx-config-apply.yaml 
+ 1089  kubectl apply -f nginx-config-apply.yaml 
+ 1090  vim nginx-config-apply.yaml 
+ 1091  kubectl get configmap nginx-config -o yaml
+ 1092  vim nginx-config-apply.yaml 
+ 1093  kubectl apply -f nginx-config-apply.yaml 
+ 1094  kubectl get configmap
+ 1095  kubectl edit configmap nginx-config
+ 1096  kubectl exec -it helloworld-nginx -c nginx -- /bin/bash
+ 1097  ls
+ 1098  cd ..
+ 1099  ls
+ 1100  git pull 
+ 1101  ls
+ 1102  kubectl get deployments 
+ 1103  kubectl get pods
+ 1104  kubectl delete pod helloworld-nginx
+ 1105  ls
+ 1106  cd ingress/
+ 1107  ls
+ 1108  kubectl create -f nginx-ingress-controller.yml 
+ 1109  ls
+ 1110  cat echoservice.yml 
+ 1111  kubectl create -f echoservice.yml 
+ 1112  ls
+ 1113  cat helloworld-v1.yml 
+ 1114  cat helloworld-v2.yml 
+ 1115  ls
+ 1116  kubectl create -f helloworld-v1.yml 
+ 1117  kubectl create -f helloworld-v2.yml 
+ 1118  kubectl get posd 
+ 1119  kubectl get pods
+ 1120  kubectl delete pod nginx-ingress-controller-csc7d
+ 1121  kubectl get pods
+ 1122  kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+ 1123  kubectl create clusterrolebinding add-on-cluster-admin-1 --clusterrole=cluster-admin --serviceaccount=default:default
+ 1124  kubectl get pods
+ 1125  kubectl delete pod nginx-ingress-controller-8hkmr
+ 1126  kubectl get pods
+ 1127  kubectl get igress
+ 1128  kubectl get ingress
+ 1129  ls
+ 1130  kubectl create -f ingress.yml 
+ 1131  kubectl get ingress
+ 1132  kubectl get svc 
+ 1133  kubectl delete svc helloworld-nginx-service
+ 1134  kubectl get pod 
+ 1135  kubectl get pod -n kube-system
+ 1136  ls
+ 1137  kubectl get pods -o wide 
+ 1138  curl 10.0.1.20
+ 1139  kubectl get vsc 
+ 1140  kubectl get svc 
+ 1141  curl 10.0.1.20
+ 1142  ls
+ 1143  kubectl expose nginx-ingress-controller --type=LoadBalancer
+ 1144  kubectl expose rc nginx-ingress-controller --type=LoadBalancer
+ 1145  kubectl get svc 
+ 1146  curl 34.66.135.61
+ 1147  curl 34.66.135.61 -H "Host:helloworld-v1.example.com"
+ 1148  curl 34.66.135.61 -H "Host:helloworld-v2.example.com"
+ 1149  history 
+ 1150  kubectl get svc 
+ 1151  kubectl delete svc nginx-ingress-controller
+ 1152  kubectl get ingress
+ 1153  kubectl describe ingress helloworld-rules
+ 1154  curl 34.96.110.132
+ 1155  curl 34.96.110.132 -H "Host: helloworld-v1.example.com"
+ 1156  curl 34.96.110.132 -H "Host: helloworld-v2.example.com"
+ 1157  curl 34.96.110.132 -34.96.110.132
+ 1158  curl 34.96.110.132
+ 1159  curl 104.197.141.207
+ 1160  curl 34.96.110.132
+ 1161  ls
+ 1162  kubectl get svc 
+ 1163  ls
+ 1164  cd ..
+ 1165  ls
+ 1166  history > DAY4_History.txt 
